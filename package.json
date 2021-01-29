@@ -1,6 +1,6 @@
 {
   "name": "@twind/forms",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A twind plugin that provides a basic reset for form styles that makes form elements easy to override with utilities.",
   "// mark as private to prevent accidental publish - use 'yarn release'": "",
   "private": true,
