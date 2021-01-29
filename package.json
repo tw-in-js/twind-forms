@@ -1,0 +1,79 @@
+{
+  "name": "@twind/forms",
+  "version": "0.1.0",
+  "description": "A twind plugin that provides a basic reset for form styles that makes form elements easy to override with utilities.",
+  "// mark as private to prevent accidental publish - use 'yarn release'": "",
+  "private": true,
+  "keywords": [
+    "twind",
+    "plugin",
+    "twind plugin",
+    "tailwind",
+    "tw-in-js",
+    "tailwind-in-js"
+  ],
+  "homepage": "https://twind.dev",
+  "bugs": "https://github.com/tw-in-js/twind-forms/issues",
+  "repository": "github:tw-in-js/twind-forms",
+  "license": "MIT",
+  "contributors": [
+    "Sascha Tandel (https://github.com/sastan)"
+  ],
+  "engines": {
+    "node": ">=10.13"
+  },
+  "// The 'module', 'unpkg' and 'types' fields are added by distilt": "",
+  "main": "index.ts",
+  "// Each entry is expanded into several bundles (module, script, types, require, node, and default)": "",
+  "exports": {
+    ".": "./index.ts",
+    "./package.json": "./package.json"
+  },
+  "// These are ONLY bundled (eg included) in the umd builds": "",
+  "bundledDependencies": [
+    "mini-svg-data-uri"
+  ],
+  "dependencies": {
+    "mini-svg-data-uri": "^1.2.3"
+  },
+  "peerDependencies": {
+    "twind": ">=0.14.4",
+    "typescript": "^4.1.0"
+  },
+  "peerDependenciesMeta": {
+    "typescript": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "c8": "^7.3.5",
+    "distilt": "^0.9.4",
+    "esbuild": "^0.8.36",
+    "esbuild-register": "^2.0.0",
+    "esm": "^3.2.25",
+    "prettier": "^2.0.5",
+    "twind": ">=0.14.4",
+    "typescript": "^4.1.3",
+    "uvu": "^0.5.1",
+    "watchlist": "^0.2.3"
+  },
+  "scripts": {
+    "build": "distilt",
+    "format": "prettier --write --ignore-path .gitignore .",
+    "release": "npx np --contents dist",
+    "test": "uvu -r esm -r esbuild-register . test.ts",
+    "test:coverage": "c8 --src index.ts --all -r lcov -r text yarn test",
+    "test:watch": "watchlist . -- yarn test",
+    "version": "yarn build"
+  },
+  "prettier": {
+    "printWidth": 100,
+    "semi": false,
+    "singleQuote": true,
+    "trailingComma": "all",
+    "bracketSpacing": true
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
