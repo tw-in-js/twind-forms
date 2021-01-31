@@ -1,6 +1,6 @@
 # @twind/forms
 
-A plugin for [Twind](https://twind.dev) that provides a basic reset for form styles that makes form elements easy to override with utilities.
+A [Twind](https://twind.dev) extension that provides a basic reset for form styles that makes form elements easy to override with utilities.
 
 [![MIT License](https://flat.badgen.net/github/license/tw-in-js/twind-forms)](https://github.com/tw-in-js/twind-forms/blob/main/LICENSE)
 [![Latest Release](https://flat.badgen.net/npm/v/@twind/forms?icon=npm&label&cache=10800&color=blue)](https://www.npmjs.com/package/@twind/forms)
@@ -8,7 +8,7 @@ A plugin for [Twind](https://twind.dev) that provides a basic reset for form sty
 [![Module Size](https://flat.badgen.net/badgesize/brotli/https:/unpkg.com/@twind/forms/forms.js?icon=jsdelivr&label&color=blue&cache=10800)](https://unpkg.com/@twind/forms/forms.js 'brotli module size')
 [![Typescript](https://flat.badgen.net/badge/icon/included?icon=typescript&label)](https://unpkg.com/browse/@twind/forms/forms.d.ts)
 
-> Based on [@tailwindcss/forms](https://github.com/tailwindlabs/tailwindcss-forms).
+> Based on [@tailwindcss/forms](https://github.com/tailwindlabs/tailwindcss-forms) and [with form classes](https://github.com/tailwindlabs/tailwindcss-forms/pull/39).
 
 ## Installation
 
@@ -74,4 +74,37 @@ setup({
     /* custom preflight */
   }),
 })
+```
+
+## Usage as form field Directive
+
+
+```js
+import { formCheckbox, formField, formFile, formInput, formRadio, formSelect, formTextarea } from '@twind/forms'
+
+document.body.innerHTML = `
+  <input class="${tw`${formInput}`}">
+`
+```
+
+## Usage as form field Plugins
+
+```js
+import { forms } from '@twind/forms'
+
+setup({
+  plugins: {
+    'form-checkbox': formCheckbox,
+    'form-field': formField,
+    'form-file': formFile,
+    'form-input': formInput,
+    'form-radio': formRadio,
+    'form-select': formSelect,
+    'form-textarea': formTextarea,
+  },
+})
+```
+
+```html
+<input class="${tw`form-input`}">
 ```
