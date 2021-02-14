@@ -78,9 +78,16 @@ setup({
 
 ## Usage as form field Directive
 
-
 ```js
-import { formCheckbox, formField, formFile, formInput, formRadio, formSelect, formTextarea } from '@twind/forms'
+import {
+  formCheckbox,
+  formField,
+  formFile,
+  formInput,
+  formRadio,
+  formSelect,
+  formTextarea,
+} from '@twind/forms'
 
 document.body.innerHTML = `
   <input class="${tw`${formInput}`}">
@@ -106,5 +113,5 @@ setup({
 ```
 
 ```html
-<input class="${tw`form-input`}">
+<input class="${tw`form-input`}" />
 ```
