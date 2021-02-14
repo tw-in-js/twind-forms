@@ -1,7 +1,34 @@
 import type { Preflight, CSSRules, Context } from 'twind'
-import svgToDataUri from 'mini-svg-data-uri'
 
 import { apply, directive } from 'twind'
+
+// Based on https://github.com/tigt/mini-svg-data-uri/blob/master/index.js (License MIT)
+const specialHexEncode = (match: string): string => {
+  switch (
+    match // Browsers tolerate these characters, and they're frequent
+  ) {
+    case '%20':
+      return ' '
+    case '%3D':
+      return '='
+    case '%3A':
+      return ':'
+    case '%2F':
+      return '/'
+    default:
+      return match.toLowerCase() // compresses better
+  }
+}
+
+const svgToDataUri = (svgString: string): string => {
+  return (
+    'data:image/svg+xml,' +
+    encodeURIComponent(svgString.trim().replace(/\s+/g, ' ').replace(/"/g, "'")).replace(
+      /%[\dA-F]{2}/g,
+      specialHexEncode,
+    )
+  )
+}
 
 // Same as in preflight
 const placeholder = ({ theme }: Context): CSSRules => ({
@@ -286,10 +313,7 @@ const styles = (selector: string): CSSRules => ({
   // },
 })
 
-export const forms = directive(
-  (): CSSRules => styles(''),
-  undefined,
-)
+export const forms = directive((): CSSRules => styles(''), undefined)
 
 export const withForms = (preflight?: CSSRules | Preflight): Preflight => (
   defaultPreflight,

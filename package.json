@@ -31,13 +31,6 @@
     ".": "./index.ts",
     "./package.json": "./package.json"
   },
-  "// These are ONLY bundled (eg included) in the umd builds": "",
-  "bundledDependencies": [
-    "mini-svg-data-uri"
-  ],
-  "dependencies": {
-    "mini-svg-data-uri": "^1.2.3"
-  },
   "peerDependencies": {
     "twind": ">=0.14.4",
     "typescript": "^4.1.0"
